@@ -3,10 +3,15 @@ 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pipeline {
 
     stages {
         stage('Checkout / Build') {
-            steps {
-                echo 'mari tarik codenya dari repo'
-                // bisa buat narik data dari repo, atau ya setup2 requirements
-            }
+           steps {
+            checkout([$class: 'GitSCM',
+            branches: [[name: '*/master']],
+            userRemoteConfigs: [[
+                url: 'https://github.com/ahmads15/api-reqres.git',
+                credentialsId: 'bitbucket'
+          ]]
+        ])
+      }
         }
 
         stage('Install Dependencies and Run Tests') {
