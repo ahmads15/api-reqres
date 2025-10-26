@@ -1,23 +1,12 @@
 pipeline {
     agent any // Specifies that the pipeline can run on any available agent
-
+    tools { nodejs 'node24' }
     stages {
-        stage('Checkout / Build') {
-           steps {
-            checkout([$class: 'GitSCM',
-            branches: [[name: '*/master']],
-            userRemoteConfigs: [[
-                url: 'https://github.com/ahmads15/api-reqres.git',
-                credentialsId: '097f7425-6693-4053-a045-bcc635051245'
-          ]]
-        ])
-      }
-        }
-
         stage('Install Dependencies and Run Tests') {
             steps {
                 echo 'mari install dependencies'
                 sh '''
+                    node -v && npm -v
                     npm install
                 '''
                 echo 'Running tests...'
