@@ -8,7 +8,7 @@ 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pipeline {
             branches: [[name: '*/master']],
             userRemoteConfigs: [[
                 url: 'https://github.com/ahmads15/api-reqres.git',
-                credentialsId: 'bitbucket'
+                credentialsId: '097f7425-6693-4053-a045-bcc635051245'
           ]]
         ])
       }
