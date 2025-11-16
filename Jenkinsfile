@@ -4,8 +4,16 @@ pipeline {
     stages {
         stage('Install Dependencies and Run Tests') {
             steps {
+                echo 'Check if Docker is installed'
+                sh '''
+                which docker || echo "docker tidak ditemukan"
+                docker -v || echo "docker belum tersedia"
+                '''
                 echo 'mari install dependencies'
                 sh '''
+                echo "Cek docker:"
+                which docker || echo "docker tidak ditemukan"
+                docker -v || echo "docker belum tersedia"
                     docker exec jest-runner bash -c "
                         npm ci &&
                         npx jest
