@@ -6,8 +6,10 @@ pipeline {
             steps {
                 echo 'mari install dependencies'
                 sh '''
-                    node -v && npm -v
-                    npm install
+                    docker exec jest-runner bash -c "
+                        npm ci &&
+                        npx jest
+                    "
                 '''
                 echo 'Running tests...'
                 // Jalanin testnya dimarih
