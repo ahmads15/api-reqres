@@ -15,8 +15,7 @@ pipeline {
                 which docker || echo "docker tidak ditemukan"
                 docker -v || echo "docker belum tersedia"
                     docker exec jest-runner bash -c "
-                        npm ci &&
-                        npx jest
+                        npm ci
                     "
                 '''
                 echo 'Running tests...'
