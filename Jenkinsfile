@@ -8,12 +8,6 @@ pipeline {
                sh """
                     docker exec -w "${env.WORKSPACE}" jest-runner bash -lc 'npm ci && npm test'
                  """
-
-                 sh '''
-                    echo "== CEK allure-results DI WORKSPACE JENKINS =="
-                    pwd
-                    ls -R allure-results || echo "allure-results TIDAK ADA di workspace Jenkins"
-                '''
             }
         }
         stage('Report') {

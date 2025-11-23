@@ -9,6 +9,6 @@ let response;
 describe('GET List Data User Reqres', () => {
     test('User success get list data', async () => {
         response = await endpoints.apiGetData();
-        expect(response.status).toEqual(200);
+        expect(response.status).toEqual(201);
     });
 });
