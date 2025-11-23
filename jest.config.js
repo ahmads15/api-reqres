@@ -2,6 +2,7 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
+
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -97,7 +98,11 @@ module.exports = {
   // projects: undefined,
 
   // Use this configuration option to add custom reporters to Jest
-  // reporters: undefined,
+  testEnvironment: 'jest-allure2-reporter/environment-node',
+  reporters: [
+    'default',
+    'jest-allure2-reporter',
+  ],
 
   // Automatically reset mock state between every test
   // resetMocks: false,
@@ -135,7 +140,6 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "node",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
