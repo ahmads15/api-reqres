@@ -6,7 +6,7 @@ pipeline {
         stage('Install Dependencies and Run Tests') {
             steps {
                sh """
-                    docker exec -w "${env.WORKSPACE}" jest-runner bash -lc 'npm ci && npm test'
+                    docker exec -w "${env.WORKSPACE}" jest-runner bash -lc 'npm ci --loglevel=error && npm test'
                  """
             }
         }
